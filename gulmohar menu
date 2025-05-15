@@ -1,0 +1,67 @@
+import React from "react";
+import { motion } from "framer-motion";
+
+const menuItems = [
+  // Breakfast
+  { name: "Freshly Squeezed Fruit Juice", description: "Natural fruit juice to kickstart your day.", price: 135, category: "Breakfast" },
+  { name: "Chilled Canned Juice", description: "Refreshing canned fruit juice.", price: 95, category: "Breakfast" },
+  { name: "Seasonal Fresh Fruits Platter", description: "Assorted fresh fruits of the season.", price: 185, category: "Breakfast" },
+  { name: "Toast", description: "4 pcs toast with butter & preserves.", price: 90, category: "Breakfast" },
+  { name: "Hot & Cold Cereals", description: "Cornflakes/Choco flakes with hot or cold milk.", price: 125, category: "Breakfast" },
+  { name: "Yogurt/Curd", description: "Fresh curd served chilled.", price: 80, category: "Breakfast" },
+  { name: "Eggs", description: "3 eggs any style with grilled tomato and fries.", price: 135, category: "Breakfast" },
+  { name: "Seasonal Stuffed Paratha", description: "2 pcs with curd & pickle.", price: 155, category: "Breakfast" },
+  { name: "Puri Bhaji", description: "5 pcs puri with bhaji & pickle.", price: 165, category: "Breakfast" },
+  { name: "Idli", description: "Steamed rice cakes served with sambhar.", price: 100, category: "Breakfast" },
+  { name: "Vada", description: "Fried savory donuts with chutney.", price: 110, category: "Breakfast" },
+  { name: "Dosa (Plain/Masala)", description: "Crispy dosa served with chutneys and sambhar.", price: 150, category: "Breakfast" },
+  { name: "Uttapam (Plain/Masala)", description: "Thick rice pancake topped with vegetables.", price: 110, category: "Breakfast" },
+  { name: "Poha", description: "Flattened rice cooked with spices.", price: 125, category: "Breakfast" },
+  { name: "Semiya Upma", description: "Vermicelli upma with vegetables.", price: 110, category: "Breakfast" },
+  { name: "Upma", description: "Savory semolina dish served hot.", price: 110, category: "Breakfast" },
+
+  // Quick Bite (Partial List from Page 2)
+  { name: "French Fries", description: "Fried potato fingers seasoned and served with ketchup.", price: 145, category: "Quick Bite" },
+  { name: "Pakoda / Cutlet", description: "Choice of vegetable or paneer pakoda.", price: 145, category: "Quick Bite" },
+  { name: "Chicken Pakoda/Cutlet", description: "Crispy chicken pakoda or cutlet.", price: 245, category: "Quick Bite" },
+  { name: "Egg Pakoda", description: "Boiled egg dipped in seasoned batter & fried.", price: 145, category: "Quick Bite" },
+  { name: "Masala Fish Finger", description: "Crispy spiced fish fingers.", price: 320, category: "Quick Bite" },
+  { name: "Spring Rolls (Veg/Chicken)", description: "Crispy rolls with veg or chicken filling.", price: 185, category: "Quick Bite" },
+  { name: "Lovely Corn", description: "Tasty spiced corn kernels.", price: 165, category: "Quick Bite" },
+  { name: "Chicken Chilly / Chicken 65", description: "Spicy Indo-Chinese chicken dishes.", price: 325, category: "Quick Bite" },
+  { name: "Paneer Chilly / Paneer 65", description: "Paneer cooked with Indo-Chinese spices.", price: 275, category: "Quick Bite" },
+  { name: "Sandwich (Veg./Chicken)", description: "Grilled or plain sandwiches.", price: 135, category: "Quick Bite" },
+
+  // You can continue adding the rest following the same format from the menu images.
+];
+
+const MenuItemCard = ({ item }) => (
+  <motion.div
+    whileHover={{ scale: 1.05, boxShadow: "0 4px 20px rgba(0,0,0,0.3)" }}
+    className="bg-white rounded-2xl p-4 shadow-md transition duration-300 hover:bg-yellow-50"
+  >
+    <img
+      src={https://source.unsplash.com/200x200/?${item.name}}
+      alt={item.name}
+      className="rounded-xl mb-2 w-full h-40 object-cover"
+    />
+    <h3 className="text-lg font-semibold">{item.name}</h3>
+    <p className="text-sm text-gray-600">{item.description}</p>
+    <p className="text-md font-bold text-green-700 mt-2">₹{item.price.toFixed(2)}</p>
+  </motion.div>
+);
+
+const MenuPage = () => {
+  return (
+    <div className="p-6 bg-gradient-to-br from-yellow-100 via-pink-100 to-purple-100 min-h-screen">
+      <h1 className="text-4xl font-bold text-center mb-6">Gulmohar Menu</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {menuItems.map((item, index) => (
+          <MenuItemCard key={index} item={item} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default MenuPage;
